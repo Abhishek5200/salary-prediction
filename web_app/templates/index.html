@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %}AI Salary Prediction - IBM Watson{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1 class="hero-title">
+            <i class="bi bi-robot me-3"></i>AI Salary Predictor
+        </h1>
+        <p class="hero-subtitle">
+            Discover your market value with IBM Watson Machine Learning
+        </p>
+        <p class="mt-4">
+            Get accurate salary predictions based on your job profile using advanced ensemble learning models 
+            powered by IBM Cloud technologies.
+        </p>
+        <div class="mt-4">
+            <a href="{{ url_for('predict') }}" class="btn btn-custom btn-lg me-3">
+                <i class="bi bi-calculator me-2"></i>Predict My Salary
+            </a>
+            <a href="{{ url_for('chat') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-chat-dots me-2"></i>Chat Assistant
+            </a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="main-container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h4>Machine Learning Powered</h4>
+                    <p>Uses ensemble learning with Random Forest, Gradient Boosting, and Voting Classifiers for accurate predictions.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-cloud-check"></i>
+                    </div>
+                    <h4>IBM Watson Integration</h4>
+                    <p>Deployed on IBM Watson Machine Learning with Watson Assistant for intelligent conversations.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-speedometer2"></i>
+                    </div>
+                    <h4>Real-time Predictions</h4>
+                    <p>Get instant salary estimates based on job title, experience, education, location, and more.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-chat-square-dots"></i>
+                    </div>
+                    <h4>AI Chat Assistant</h4>
+                    <p>Interact naturally with our Watson Assistant to get personalized salary insights.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-bar-chart"></i>
+                    </div>
+                    <h4>Data-Driven Insights</h4>
+                    <p>Predictions based on comprehensive market data and industry standards.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h4>Privacy First</h4>
+                    <p>Your data is processed securely using IBM Cloud's enterprise-grade security.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="main-container">
+        <h2 class="text-center mb-5">How It Works</h2>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mb-3">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">1</span>
+                    </div>
+                </div>
+                <h5>Input Your Profile</h5>
+                <p>Enter your job details including title, experience, education, and location.</p>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mb-3">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">2</span>
+                    </div>
+                </div>
+                <h5>AI Processing</h5>
+                <p>Our ensemble ML models analyze your profile using IBM Watson Machine Learning.</p>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mb-3">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">3</span>
+                    </div>
+                </div>
+                <h5>Get Prediction</h5>
+                <p>Receive accurate salary estimates based on current market data.</p>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mb-3">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">4</span>
+                    </div>
+                </div>
+                <h5>Make Informed Decisions</h5>
+                <p>Use insights to negotiate salaries or plan your career path.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Stack Section -->
+    <div class="main-container">
+        <h2 class="text-center mb-5">Powered by Advanced Technology</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h4><i class="bi bi-cpu me-2 text-primary"></i>Machine Learning Models</h4>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Random Forest Regressor</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Gradient Boosting Regressor</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Linear Regression</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Support Vector Regression</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Voting Ensemble</li>
+                </ul>
+                
+                <h4 class="mt-4"><i class="bi bi-cloud me-2 text-primary"></i>IBM Cloud Services</h4>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Watson Machine Learning</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Watson Assistant</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Cloud Object Storage</li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="bg-light p-4 rounded-3">
+                    <h5 class="text-center mb-4">Model Performance</h5>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="h3 text-primary">95%</div>
+                            <small>Accuracy</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="h3 text-success">0.92</div>
+                            <small>R² Score</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="h3 text-info">$8K</div>
+                            <small>Avg Error</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-center">
+                    <img src="https://via.placeholder.com/400x200/667eea/ffffff?text=ML+Pipeline" 
+                         alt="ML Pipeline" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="main-container text-center">
+        <h2 class="mb-4">Ready to Discover Your Worth?</h2>
+        <p class="mb-4 fs-5">Join thousands of professionals who have used our AI-powered salary predictor to make informed career decisions.</p>
+        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+            <a href="{{ url_for('predict') }}" class="btn btn-custom btn-lg">
+                <i class="bi bi-calculator me-2"></i>Start Salary Prediction
+            </a>
+            <a href="{{ url_for('chat') }}" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-chat-dots me-2"></i>Try Chat Assistant
+            </a>
+            <a href="{{ url_for('about') }}" class="btn btn-outline-secondary btn-lg">
+                <i class="bi bi-info-circle me-2"></i>Learn More
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,632 @@
+{
+  "name": "Salary Prediction Assistant",
+  "description": "Watson Assistant for salary prediction using machine learning",
+  "language": "en",
+  "workspace": {
+    "intents": [
+      {
+        "intent": "salary_prediction",
+        "description": "Intent for salary prediction requests",
+        "examples": [
+          {
+            "text": "What salary can I expect as a software engineer?"
+          },
+          {
+            "text": "Predict my salary"
+          },
+          {
+            "text": "How much should I earn?"
+          },
+          {
+            "text": "What's the expected salary for a data scientist with 5 years experience?"
+          },
+          {
+            "text": "Calculate my potential salary"
+          },
+          {
+            "text": "I want to know my salary prediction"
+          },
+          {
+            "text": "Estimate salary for product manager in San Francisco"
+          },
+          {
+            "text": "What should be my compensation?"
+          },
+          {
+            "text": "Help me understand my market value"
+          },
+          {
+            "text": "Salary estimation"
+          }
+        ]
+      },
+      {
+        "intent": "greeting",
+        "description": "Greeting intent",
+        "examples": [
+          {
+            "text": "Hello"
+          },
+          {
+            "text": "Hi"
+          },
+          {
+            "text": "Good morning"
+          },
+          {
+            "text": "Good afternoon"
+          },
+          {
+            "text": "Hey there"
+          }
+        ]
+      },
+      {
+        "intent": "goodbye",
+        "description": "Goodbye intent",
+        "examples": [
+          {
+            "text": "Goodbye"
+          },
+          {
+            "text": "Bye"
+          },
+          {
+            "text": "See you later"
+          },
+          {
+            "text": "Thanks, that's all"
+          },
+          {
+            "text": "Exit"
+          }
+        ]
+      },
+      {
+        "intent": "help",
+        "description": "Help intent",
+        "examples": [
+          {
+            "text": "Help"
+          },
+          {
+            "text": "What can you do?"
+          },
+          {
+            "text": "How does this work?"
+          },
+          {
+            "text": "Can you help me?"
+          },
+          {
+            "text": "What features do you have?"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "job_title",
+        "description": "Job titles for salary prediction",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Software Engineer",
+            "synonyms": [
+              "software developer",
+              "programmer",
+              "developer",
+              "software engineer",
+              "backend developer",
+              "frontend developer",
+              "full stack developer"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Data Scientist",
+            "synonyms": [
+              "data scientist",
+              "data analyst",
+              "machine learning engineer",
+              "ML engineer",
+              "AI engineer"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Product Manager",
+            "synonyms": [
+              "product manager",
+              "PM",
+              "product owner",
+              "product lead"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Marketing Manager",
+            "synonyms": [
+              "marketing manager",
+              "marketing director",
+              "marketing lead",
+              "digital marketing manager"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Sales Representative",
+            "synonyms": [
+              "sales rep",
+              "sales representative",
+              "account manager",
+              "sales manager"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "DevOps Engineer",
+            "synonyms": [
+              "devops engineer",
+              "site reliability engineer",
+              "SRE",
+              "cloud engineer",
+              "infrastructure engineer"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "UX Designer",
+            "synonyms": [
+              "UX designer",
+              "UI designer",
+              "user experience designer",
+              "product designer"
+            ]
+          }
+        ]
+      },
+      {
+        "entity": "education_level",
+        "description": "Education levels",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "High School",
+            "synonyms": [
+              "high school",
+              "secondary school",
+              "diploma"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Bachelor",
+            "synonyms": [
+              "bachelor",
+              "bachelor's degree",
+              "undergraduate degree",
+              "college degree"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Master",
+            "synonyms": [
+              "master",
+              "master's degree",
+              "graduate degree",
+              "masters"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "PhD",
+            "synonyms": [
+              "phd",
+              "doctorate",
+              "doctoral degree",
+              "Ph.D."
+            ]
+          }
+        ]
+      },
+      {
+        "entity": "location",
+        "description": "Work locations",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "San Francisco",
+            "synonyms": [
+              "san francisco",
+              "SF",
+              "bay area",
+              "silicon valley"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "New York",
+            "synonyms": [
+              "new york",
+              "NYC",
+              "new york city",
+              "manhattan"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Seattle",
+            "synonyms": [
+              "seattle",
+              "washington"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Austin",
+            "synonyms": [
+              "austin",
+              "texas"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Chicago",
+            "synonyms": [
+              "chicago",
+              "illinois"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Boston",
+            "synonyms": [
+              "boston",
+              "massachusetts"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Remote",
+            "synonyms": [
+              "remote",
+              "work from home",
+              "virtual",
+              "distributed"
+            ]
+          }
+        ]
+      },
+      {
+        "entity": "company_size",
+        "description": "Company sizes",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Startup",
+            "synonyms": [
+              "startup",
+              "early stage",
+              "small startup"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Small",
+            "synonyms": [
+              "small company",
+              "small business",
+              "SMB"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Medium",
+            "synonyms": [
+              "medium company",
+              "mid-size",
+              "medium business"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Large",
+            "synonyms": [
+              "large company",
+              "enterprise",
+              "corporation",
+              "big company"
+            ]
+          }
+        ]
+      },
+      {
+        "entity": "industry",
+        "description": "Industry types",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Technology",
+            "synonyms": [
+              "technology",
+              "tech",
+              "software",
+              "IT"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Finance",
+            "synonyms": [
+              "finance",
+              "financial services",
+              "banking",
+              "fintech"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Healthcare",
+            "synonyms": [
+              "healthcare",
+              "medical",
+              "health",
+              "pharmaceutical"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Retail",
+            "synonyms": [
+              "retail",
+              "e-commerce",
+              "commerce"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Manufacturing",
+            "synonyms": [
+              "manufacturing",
+              "industrial",
+              "production"
+            ]
+          }
+        ]
+      },
+      {
+        "entity": "years_experience",
+        "description": "Years of experience",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "0",
+            "patterns": [
+              "0",
+              "zero",
+              "entry level",
+              "fresh graduate"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "1",
+            "patterns": [
+              "1",
+              "one",
+              "1 year"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "2",
+            "patterns": [
+              "2",
+              "two",
+              "2 years"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "3",
+            "patterns": [
+              "3",
+              "three",
+              "3 years"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "5",
+            "patterns": [
+              "5",
+              "five",
+              "5 years"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "10",
+            "patterns": [
+              "10",
+              "ten",
+              "10 years",
+              "senior",
+              "experienced"
+            ]
+          }
+        ]
+      },
+      {
+        "entity": "performance_rating",
+        "description": "Performance ratings (1-5 scale)",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "5",
+            "patterns": [
+              "5",
+              "excellent",
+              "outstanding",
+              "top performer"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "4",
+            "patterns": [
+              "4",
+              "good",
+              "above average",
+              "high performer"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "3",
+            "patterns": [
+              "3",
+              "average",
+              "meets expectations",
+              "satisfactory"
+            ]
+          },
+          {
+            "type": "patterns",
+            "value": "2",
+            "patterns": [
+              "2",
+              "below average",
+              "needs improvement"
+            ]
+          }
+        ]
+      }
+    ],
+    "dialog_nodes": [
+      {
+        "type": "standard",
+        "title": "Welcome",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Hello! I'm your AI salary prediction assistant. I can help you estimate your expected salary based on your job profile. Just tell me about your role, experience, and other details!"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "conditions": "welcome",
+        "dialog_node": "node_1_welcome"
+      },
+      {
+        "type": "standard",
+        "title": "Greeting",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Hi there! I can help you predict your expected salary. What would you like to know?"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "conditions": "#greeting",
+        "dialog_node": "node_2_greeting"
+      },
+      {
+        "type": "standard",
+        "title": "Salary Prediction",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "I'd be happy to help predict your salary! Please provide me with the following information:\n\n• Your job title\n• Years of experience\n• Education level\n• Location\n• Company size\n• Industry\n• Performance rating (1-5)\n• Number of certifications\n\nFor example: 'I'm a software engineer with 5 years experience, master's degree, working in San Francisco at a large tech company with 4.5 performance rating and 2 certifications.'"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "conditions": "#salary_prediction",
+        "dialog_node": "node_3_salary_prediction"
+      },
+      {
+        "type": "standard",
+        "title": "Help",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "I can help you predict your expected salary based on various factors:\n\n🎯 **What I do:**\n• Predict salaries using machine learning\n• Consider job title, experience, education, location, and more\n• Provide market-based salary estimates\n\n💬 **How to use:**\nJust tell me about your job profile, and I'll estimate your salary. You can say things like:\n• \"What salary can I expect as a data scientist?\"\n• \"Predict my salary for a product manager role\"\n• \"I'm a software engineer with 3 years experience in Austin\"\n\nTry asking me for a salary prediction!"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "conditions": "#help",
+        "dialog_node": "node_4_help"
+      },
+      {
+        "type": "standard",
+        "title": "Goodbye",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "Thank you for using the salary prediction assistant! Good luck with your career! 👋"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "conditions": "#goodbye",
+        "dialog_node": "node_5_goodbye"
+      },
+      {
+        "type": "standard",
+        "title": "Anything else",
+        "output": {
+          "generic": [
+            {
+              "values": [
+                {
+                  "text": "I'm specialized in salary predictions. Please tell me about your job profile (title, experience, education, location, etc.) and I'll estimate your expected salary. You can also ask for help if you need guidance!"
+                }
+              ],
+              "response_type": "text",
+              "selection_policy": "sequential"
+            }
+          ]
+        },
+        "conditions": "anything_else",
+        "dialog_node": "node_6_anything_else"
+      }
+    ],
+    "counterexamples": [],
+    "system_entities": [
+      "sys-number",
+      "sys-location",
+      "sys-person"
+    ],
+    "learning_opt_out": false
+  }
+}

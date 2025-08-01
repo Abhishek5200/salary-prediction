@@ -1,0 +1,28 @@
+# Core ML and Data Science libraries
+pandas>=1.5.0
+numpy>=1.21.0
+scikit-learn>=1.1.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+joblib>=1.1.0
+
+# IBM Cloud and Watson libraries
+ibm-watson>=6.0.0
+ibm-cloud-sdk-core>=3.16.0
+ibmcloudsdkcore>=1.0.0
+ibm-watson-machine-learning>=1.0.312
+
+# Web framework for API
+flask>=2.2.0
+flask-cors>=3.0.10
+
+# Data visualization and analysis
+plotly>=5.10.0
+jupyter>=1.0.0
+
+# Environment management
+python-dotenv>=0.19.0
+
+# Additional utilities
+requests>=2.28.0
+urllib3>=1.26.0
