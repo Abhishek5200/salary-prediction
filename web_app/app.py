@@ -29,11 +29,36 @@ def load_local_model():
     """Load local model if Watson is not available"""
     global local_model, preprocessor
     try:
-        local_model = joblib.load('../models/best_model.pkl')
-        preprocessor_data = joblib.load('../models/preprocessor.pkl')
-        preprocessor = preprocessor_data['preprocessor']
-        print("Local model loaded successfully")
-        return True
+        # Try different path combinations
+        model_paths = [
+            '../src/models/best_model.pkl',
+            'src/models/best_model.pkl',
+            os.path.join(os.path.dirname(__file__), '..', 'src', 'models', 'best_model.pkl')
+        ]
+        
+        preprocessor_paths = [
+            '../src/models/preprocessor.pkl',
+            'src/models/preprocessor.pkl',
+            os.path.join(os.path.dirname(__file__), '..', 'src', 'models', 'preprocessor.pkl')
+        ]
+        
+        # Try to load model
+        for path in model_paths:
+            if os.path.exists(path):
+                local_model = joblib.load(path)
+                print(f"Local model loaded successfully from {path}")
+                break
+        
+        # Try to load preprocessor
+        for path in preprocessor_paths:
+            if os.path.exists(path):
+                preprocessor_data = joblib.load(path)
+                preprocessor = preprocessor_data['preprocessor']
+                print(f"Preprocessor loaded successfully from {path}")
+                break
+        
+        return local_model is not None and preprocessor is not None
+        
     except Exception as e:
         print(f"Error loading local model: {e}")
         return False
@@ -201,6 +226,7 @@ def health():
         'status': 'healthy',
         'watson_available': WATSON_AVAILABLE,
         'local_model_available': local_model is not None,
+        'preprocessor_available': preprocessor is not None,
         'timestamp': datetime.now().isoformat()
     })
 

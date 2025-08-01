@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}About - AI Salary Prediction{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="main-container">
+        <div class="text-center mb-5">
+            <h1><i class="bi bi-info-circle me-3"></i>About This Project</h1>
+            <p class="lead">IBM Internship AI Project - Salary Prediction using Ensemble Learning</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3>🎯 Project Overview</h3>
+                <p>
+                    This project demonstrates advanced machine learning techniques for salary prediction using ensemble learning methods. 
+                    It's designed as part of an IBM internship to showcase integration with IBM Cloud services including Watson Machine Learning and Watson Assistant.
+                </p>
+
+                <h3>🤖 Machine Learning Models</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Ensemble Methods Used:</h5>
+                        <ul>
+                            <li><strong>Random Forest</strong> - Tree-based ensemble method</li>
+                            <li><strong>Gradient Boosting</strong> - Sequential learning approach</li>
+                            <li><strong>Linear Regression</strong> - Statistical baseline</li>
+                            <li><strong>Support Vector Regression</strong> - Kernel-based method</li>
+                            <li><strong>Voting Regressor</strong> - Combines multiple models</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Performance Metrics:</h5>
+                        <ul>
+                            <li><strong>Best Model:</strong> Gradient Boosting</li>
+                            <li><strong>Test R² Score:</strong> 0.926</li>
+                            <li><strong>RMSE:</strong> $14,162</li>
+                            <li><strong>MAE:</strong> $9,943</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>☁️ IBM Cloud Integration</h3>
+                <p>This project is designed to integrate with IBM Cloud services:</p>
+                <ul>
+                    <li><strong>Watson Machine Learning:</strong> Model deployment and serving</li>
+                    <li><strong>Watson Assistant:</strong> Natural language interaction</li>
+                    <li><strong>Cloud Object Storage:</strong> Data storage and management</li>
+                </ul>
+
+                <h3>🛠 Technology Stack</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Backend:</h5>
+                        <ul>
+                            <li>Python 3.13</li>
+                            <li>Flask Web Framework</li>
+                            <li>scikit-learn</li>
+                            <li>pandas & NumPy</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Frontend:</h5>
+                        <ul>
+                            <li>Bootstrap 5</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>ML & AI:</h5>
+                        <ul>
+                            <li>Ensemble Learning</li>
+                            <li>Feature Engineering</li>
+                            <li>Model Evaluation</li>
+                            <li>Hyperparameter Tuning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>📊 Key Features</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title">🎯 Accurate Predictions</h6>
+                                <p class="card-text">Ensemble methods provide robust salary estimates with 92.6% accuracy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title">🚀 Real-time API</h6>
+                                <p class="card-text">Fast REST API endpoints for immediate predictions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title">💬 AI Chat Interface</h6>
+                                <p class="card-text">Natural language interaction through Watson Assistant.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title">🎨 Modern UI</h6>
+                                <p class="card-text">Beautiful, responsive interface with intuitive design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📈 Model Performance</h3>
+                <p>
+                    The ensemble approach significantly outperforms individual models. The Gradient Boosting model 
+                    achieved the best performance with an R² score of 0.926, meaning it explains 92.6% of the 
+                    variance in salary data.
+                </p>
+
+                <h3>🔮 Future Enhancements</h3>
+                <ul>
+                    <li>Integration with live job market data</li>
+                    <li>Geographic salary adjustment models</li>
+                    <li>Industry-specific prediction models</li>
+                    <li>Real-time model retraining</li>
+                    <li>Advanced visualization dashboards</li>
+                </ul>
+
+                <div class="text-center mt-5">
+                    <a href="{{ url_for('predict') }}" class="btn btn-custom btn-lg me-3">
+                        <i class="bi bi-calculator me-2"></i>Try Salary Prediction
+                    </a>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-house me-2"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

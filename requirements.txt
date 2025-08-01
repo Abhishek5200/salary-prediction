@@ -9,7 +9,6 @@ joblib>=1.1.0
 # IBM Cloud and Watson libraries
 ibm-watson>=6.0.0
 ibm-cloud-sdk-core>=3.16.0
-ibmcloudsdkcore>=1.0.0
 ibm-watson-machine-learning>=1.0.312
 
 # Web framework for API
